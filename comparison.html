@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five Physical AI Startups Compared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one reading column; a stage-coverage grid, then a positioning map, then plain-language cards. */
+:root {
+  color-scheme: light;
+  --bg: #f4f6f8;
+  --surface: #fcfcfb;
+  --ink: #0f1720;
+  --ink-2: #4a5563;
+  --ink-3: #7a8592;
+  --line: #dde3ea;
+  --core: #2a78d6;
+  --core-ink: #ffffff;
+  --some: #cde2fb;
+  --some-ink: #123a6b;
+  --none: #eef1f4;
+  --dot: #2a78d6;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111418; --surface: #1a1d21; --ink: #eef0f2; --ink-2: #b9c0c8; --ink-3: #8a939d;
+    --line: #2c3238; --core: #2a78d6; --core-ink: #ffffff; --some: #1d3a5f; --some-ink: #cfe2fa;
+    --none: #20252a; --dot: #5598e7;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111418; --surface: #1a1d21; --ink: #eef0f2; --ink-2: #b9c0c8; --ink-3: #8a939d;
+  --line: #2c3238; --core: #2a78d6; --core-ink: #ffffff; --some: #1d3a5f; --some-ink: #cfe2fa;
+  --none: #20252a; --dot: #5598e7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--font-body); }
+main { max-width: 1080px; margin: 0 auto; padding: 40px 20px 64px; display: grid; gap: 40px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: 34px; line-height: 1.15; }
+h2 { font-size: 23px; }
+p { margin: 0; }
+.lede { color: var(--ink-2); max-width: 68ch; margin-top: 10px; }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: grid; gap: 16px; }
+.sub { color: var(--ink-2); max-width: 70ch; font-size: 15px; }
+
+/* Coverage grid */
+.scroll { overflow-x: auto; }
+table.cov { border-collapse: separate; border-spacing: 2px; width: 100%; min-width: 820px; table-layout: fixed; }
+table.cov th { font: 600 13px/1.3 var(--font-body); color: var(--ink-2); text-align: left; padding: 6px 8px; vertical-align: bottom; }
+table.cov th.step span { display: block; color: var(--ink-3); font-weight: 500; font-variant-numeric: tabular-nums; }
+table.cov th[scope="row"] { font: 600 15px/1.25 var(--font-display); color: var(--ink); width: 130px; vertical-align: middle; }
+table.cov th[scope="row"] small { display: block; font: 400 12px var(--font-body); color: var(--ink-3); }
+table.cov td { border-radius: 4px; padding: 8px 9px; font-size: 12.5px; line-height: 1.3; vertical-align: top; height: 68px; }
+td.core { background: var(--core); color: var(--core-ink); font-weight: 500; }
+td.some { background: var(--some); color: var(--some-ink); }
+td.none { background: var(--none); }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; }
+
+/* Map */
+.map-wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+svg { width: 100%; height: auto; display: block; font-family: var(--font-body); }
+.axis { stroke: var(--line); stroke-width: 1; }
+.mid { stroke: var(--line); stroke-dasharray: 3 4; }
+.axl { fill: var(--ink-3); font-size: 12px; }
+.qd { fill: var(--ink-3); font-size: 11px; font-style: italic; }
+.pt circle { fill: var(--dot); stroke: var(--surface); stroke-width: 2; cursor: default; }
+.pt text { fill: var(--ink); font-size: 14px; font-weight: 600; }
+.pt:hover circle, .pt:focus circle { r: 11; }
+.pt:focus { outline: none; }
+.pt:focus-visible circle { stroke: var(--ink); }
+.read { display: grid; gap: 12px; font-size: 15px; color: var(--ink-2); }
+.read b { color: var(--ink); }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 13px; padding: 8px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .12s; z-index: 9; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card { border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.card h3 { font: 700 18px/1.2 var(--font-display); margin: 0; }
+.card .tag { font-size: 12px; color: var(--ink-3); }
+.card .like { font-size: 14px; color: var(--ink); border-left: 3px solid var(--core); padding-left: 10px; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 13.5px; }
+.card dt { color: var(--ink-3); }
+.card dd { margin: 0; color: var(--ink-2); }
+.foot { font-size: 13px; color: var(--ink-3); max-width: 80ch; }
+@media (max-width: 760px) { .map-wrap { grid-template-columns: 1fr; } h1 { font-size: 28px; } }
+@media (prefers-reduced-motion: reduce) { #tip { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Five physical AI startups, side by side</h1>
+    <p class="lede">All five help robots work in the real world, but each one works on a different part of the job. Below: which steps each company covers, where they sit on the map, and a plain-words summary of each.</p>
+  </header>
+
+  <section aria-labelledby="h-cov">
+    <h2 id="h-cov">Which steps of making a useful robot does each company work on?</h2>
+    <p class="sub">Read left to right as the life of a robot: gather examples, practise in a simulated world, learn, get tested, go to work, then keep running. Dark cells are the company's main business; light cells are things it touches on.</p>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--core)"></i>Main business</span>
+      <span><i style="background:var(--some)"></i>Touches on it</span>
+      <span><i style="background:var(--none);border:1px solid var(--line)"></i>Not their focus</span>
+    </div>
+    <div class="scroll">
+      <table class="cov">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="step" scope="col"><span>1</span>Gather real-world examples</th>
+            <th class="step" scope="col"><span>2</span>Build a practice world (simulation)</th>
+            <th class="step" scope="col"><span>3</span>Teach the robot brain</th>
+            <th class="step" scope="col"><span>4</span>Test and grade it</th>
+            <th class="step" scope="col"><span>5</span>Put robots to work</th>
+            <th class="step" scope="col"><span>6</span>Watch machines on site</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Veeda AI<small>Toronto</small></th>
+            <td class="none"></td>
+            <td class="core">AI that generates realistic simulated worlds ("world models")</td>
+            <td class="some">Robots learn inside those worlds</td>
+            <td class="some">Safe virtual testing</td>
+            <td class="none"></td>
+            <td class="none"></td>
+          </tr>
+          <tr>
+            <th scope="row">Kite ML<small>San Francisco</small></th>
+            <td class="some">Repaints existing recordings into many variations</td>
+            <td class="some">Turns one recording into a 3D sim room (beta)</td>
+            <td class="core">Trains robot brains on its cloud GPUs from a plain-English goal</td>
+            <td class="core">Automatic pass / fail grade and report cards</td>
+            <td class="none"></td>
+            <td class="none"></td>
+          </tr>
+          <tr>
+            <th scope="row">WorldEngine<small>Santa Clara</small></th>
+            <td class="core">Captures and organizes huge amounts of real-world robot experience</td>
+            <td class="none"></td>
+            <td class="core">Uses that data to further train robot models</td>
+            <td class="some">Evaluates the models</td>
+            <td class="some">Real-world failures feed the next round</td>
+            <td class="none"></td>
+          </tr>
+          <tr>
+            <th scope="row">Shiraz AI<small>San Francisco</small></th>
+            <td class="some">One human shows the task once</td>
+            <td class="none"></td>
+            <td class="core">Robot brain learns the new task from that single demo</td>
+            <td class="none"></td>
+            <td class="core">Ships the robot and sets it up on the factory line</td>
+            <td class="none"></td>
+          </tr>
+          <tr>
+            <th scope="row">KavAI<small>California</small></th>
+            <td class="some">Reads sensor data from industrial equipment</td>
+            <td class="none"></td>
+            <td class="none"></td>
+            <td class="none"></td>
+            <td class="none"></td>
+            <td class="core">AI model that monitors machines and predicts problems</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-map">
+    <h2 id="h-map">Who do they sell to, and do they work in simulation or in the real world?</h2>
+    <p class="sub">Positions are my judgment from public info, not measurements. Hover or tab to a dot for a one-line summary.</p>
+    <div class="map-wrap">
+      <svg viewBox="0 0 560 420" role="img" aria-labelledby="map-t map-d">
+        <title id="map-t">Positioning map of five physical AI startups</title>
+        <desc id="map-d">Horizontal axis runs from selling to robot builders on the left to selling to factories on the right. Vertical axis runs from real world at the bottom to simulation at the top. Veeda is top left, Kite upper left, WorldEngine lower left, KavAI lower right, Shiraz bottom right.</desc>
+        <!-- plot area x 40..540, y 20..370 -->
+        <rect x="40" y="20" width="500" height="350" fill="none" class="axis"/>
+        <line x1="290" y1="20" x2="290" y2="370" class="mid"/>
+        <line x1="40" y1="195" x2="540" y2="195" class="mid"/>
+        <text class="qd" x="50" y="40">Tools &amp; worlds for robot makers</text>
+        <text class="qd" x="50" y="360">Data for robot makers</text>
+        <text class="qd" x="530" y="360" text-anchor="end">Robots &amp; AI for factories</text>
+        <text class="qd" x="530" y="40" text-anchor="end">(empty)</text>
+        <text class="axl" x="40" y="392">← Sells to robot builders</text>
+        <text class="axl" x="540" y="392" text-anchor="end">Sells to factories →</text>
+        <text class="axl" x="0" y="0" transform="translate(26 370) rotate(-90)">Real world</text>
+        <text class="axl" x="0" y="0" transform="translate(26 20) rotate(-90)" text-anchor="end">Simulation</text>
+
+        <g class="pt" tabindex="0" data-tip="Veeda AI: builds AI that simulates the physical world so robots can practise in it. $90M+ seed." transform="translate(110 70)">
+          <circle r="8"/><text x="14" y="5">Veeda AI</text>
+        </g>
+        <g class="pt" tabindex="0" data-tip="Kite ML: cloud 'robot school'. Describe a skill, it trains and grades the robot brain in simulation. No disclosed funding." transform="translate(150 140)">
+          <circle r="8"/><text x="14" y="5">Kite ML</text>
+        </g>
+        <g class="pt" tabindex="0" data-tip="WorldEngine: collects real-world robot experience at scale and uses it to keep improving robot models. Seed stage." transform="translate(170 290)">
+          <circle r="8"/><text x="14" y="5">WorldEngine</text>
+        </g>
+        <g class="pt" tabindex="0" data-tip="KavAI: AI that watches industrial machines and predicts problems. ~$7.2M reported (sources conflict)." transform="translate(430 260)">
+          <circle r="8"/><text x="-14" y="5" text-anchor="end">KavAI</text>
+        </g>
+        <g class="pt" tabindex="0" data-tip="Shiraz AI: delivers factory robots that learn a new task from one human demo. YC S26." transform="translate(470 330)">
+          <circle r="8"/><text x="-14" y="5" text-anchor="end">Shiraz AI</text>
+        </g>
+      </svg>
+      <div class="read">
+        <p><b>Left side, robot builders.</b> Veeda, Kite and WorldEngine sell to companies that make robots. They supply the practice worlds, the training tools or the data.</p>
+        <p><b>Top versus bottom.</b> Veeda and Kite bet on simulation (practise in a virtual world). WorldEngine bets on real-world data being what's missing.</p>
+        <p><b>Right side, factories.</b> Shiraz and KavAI sell straight to industry. Shiraz brings the working robot itself; KavAI brings AI that watches existing machines.</p>
+        <p><b>Empty corner.</b> Nobody here sells simulation tools straight to factories.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cards">
+    <h2 id="h-cards">Each company in plain words</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Veeda AI</h3>
+        <span class="tag">World models</span>
+        <p class="like">A flight simulator for robots, made by AI.</p>
+        <dl><dt>Sells</dt><dd>Simulated worlds and models</dd><dt>To</dt><dd>Robot makers and AI labs</dd><dt>Stage</dt><dd>$90M+ seed, Aug 2026 (Radical, Khosla)</dd><dt>Team</dt><dd>Ex-NVIDIA Toronto AI lab</dd></dl>
+      </article>
+      <article class="card">
+        <h3>Kite ML</h3>
+        <span class="tag">Robot training platform</span>
+        <p class="like">A robot school in the cloud: describe the skill, get back a trained, graded brain.</p>
+        <dl><dt>Sells</dt><dd>Software / cloud service</dd><dt>To</dt><dd>Robotics teams and labs</dd><dt>Stage</dt><dd>2 founders, no disclosed round</dd><dt>Twist</dt><dd>An AI assistant can run it end to end</dd></dl>
+      </article>
+      <article class="card">
+        <h3>WorldEngine</h3>
+        <span class="tag">Real-world data engine</span>
+        <p class="like">Collects robots' real-life experience and turns their mistakes into lessons.</p>
+        <dl><dt>Sells</dt><dd>Data and post-training</dd><dt>To</dt><dd>Robot model builders</dd><dt>Stage</dt><dd>Seed (ZWC, UpScaleX), founded 2025</dd><dt>Claim</dt><dd>"Scale physical experience 10,000×"</dd></dl>
+      </article>
+      <article class="card">
+        <h3>Shiraz AI</h3>
+        <span class="tag">Full-stack factory robots</span>
+        <p class="like">Show it a factory job once and it does the job; new product next week, show it again.</p>
+        <dl><dt>Sells</dt><dd>Robot + AI + setup</dd><dt>To</dt><dd>Contract manufacturers</dd><dt>Stage</dt><dd>YC S26, 2 founders</dd><dt>Team</dt><dd>Ex-Boston Dynamics (Spot), Amazon Robotics</dd></dl>
+      </article>
+      <article class="card">
+        <h3>KavAI</h3>
+        <span class="tag">Industrial monitoring AI</span>
+        <p class="like">A doctor for factory machines: watches the signals and warns before something breaks.</p>
+        <dl><dt>Sells</dt><dd>AI model / software</dd><dt>To</dt><dd>Manufacturing, energy, robotics operators</dd><dt>Stage</dt><dd>~$7.2M reported, sources conflict</dd><dt>Note</dt><dd>Formerly SoterAI</dd></dl>
+      </article>
+    </div>
+  </section>
+
+  <p class="foot">Researched 6 Nov 2026 from web search results, company docs and press. The companies' own websites could not be opened directly, and most claims are self-reported. Coverage cells and map positions are interpretive. Details and sources are in the companies/ folder of the physical-ai repo.</p>
+</main>
+<div id="tip" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  var tip = document.getElementById('tip');
+  function show(el, x, y) { tip.textContent = el.getAttribute('data-tip'); tip.style.left = Math.min(x + 14, window.innerWidth - 280) + 'px'; tip.style.top = (y + 14) + 'px'; tip.style.opacity = 1; }
+  function hide() { tip.style.opacity = 0; }
+  document.querySelectorAll('.pt').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('focus', function () { var r = el.getBoundingClientRect(); show(el, r.right, r.top); });
+    el.addEventListener('blur', hide);
+  });
+})();
+</script>
+</body>
+</html>

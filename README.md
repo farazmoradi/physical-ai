@@ -1,7 +1,7 @@
 # Physical AI company tracker
 
 Notes on companies working in physical AI (robotics, world models, embodied AI).
-One file per company in [`companies/`](companies/).
+One file per company in [`companies/`](companies/). Visual side-by-side comparison: [`comparison.html`](comparison.html).
 
 | Company | Site | Category | One-liner | Stage / funding |
 |---|---|---|---|---|
@@ -9,6 +9,7 @@ One file per company in [`companies/`](companies/).
 | [KavAI](companies/kavai.md) | kavai.com | Industrial physical-world foundation model | Adaptive AI model to monitor/predict conditions in industrial settings (robotics, manufacturing, energy) | ~$7.2M reported (PitchBook, incl. a16z); sources conflict |
 | [WorldEngine](companies/worldengine.md) | worldengine.ai | Physical AI data infrastructure | "Physical AGI, starting with scaling physical experience 10,000x": capture → structure → train → eval → deploy loop | Seed, Santa Clara, founded 2025 |
 | [Veeda AI](companies/veeda.md) | veeda.ai | World models | Foundation models that simulate physical reality so robots can train in virtual environments | $90M+ seed (Aug 2026), Radical + Khosla |
+| [Shiraz AI](companies/shiraz.md) | shiraz.ai | Full-stack manufacturing robots | "Robots that learn on the job": robot + foundation model that learns a factory task from one human demo, delivered working on the line | YC S26, 2 founders (ex-Boston Dynamics, Amazon Robotics) |
 
 ## Method / caveats
 
