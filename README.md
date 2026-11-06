@@ -1,0 +1,17 @@
+# Physical AI company tracker
+
+Notes on companies working in physical AI (robotics, world models, embodied AI).
+One file per company in [`companies/`](companies/).
+
+| Company | Site | Category | One-liner | Stage / funding |
+|---|---|---|---|---|
+| [Kite ML](companies/kite-ml.md) | kiteml.com | Robot training tooling / dev platform | "The IDE for autonomous robots": sim, RL training, dataset augmentation, eval, cloud GPUs | Early-stage, SF; funding unconfirmed |
+| [KavAI](companies/kavai.md) | kavai.com | Industrial physical-world foundation model | Adaptive AI model to monitor/predict conditions in industrial settings (robotics, manufacturing, energy) | ~$7.2M reported (PitchBook, incl. a16z); sources conflict |
+| [WorldEngine](companies/worldengine.md) | worldengine.ai | Physical AI data infrastructure | "Physical AGI, starting with scaling physical experience 10,000x": capture → structure → train → eval → deploy loop | Seed, Santa Clara, founded 2025 |
+| [Veeda AI](companies/veeda.md) | veeda.ai | World models | Foundation models that simulate physical reality so robots can train in virtual environments | $90M+ seed (Aug 2026), Radical + Khosla |
+
+## Method / caveats
+
+- Last updated: 2026-11-06.
+- The company websites could not be fetched directly from the research environment (network policy blocked them), so these notes are built from web search results: company docs/profiles where indexed, press, PitchBook, Crunchbase, Tracxn, etc.
+- Data aggregators often disagree; conflicts are called out in each file. Verify before relying on funding/HQ figures.
