@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Five Physical AI Startups Compared</title>
+<title>Five Robot AI Startups Compared</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -81,6 +81,9 @@ svg { width: 100%; height: auto; display: block; font-family: var(--font-body); 
 .read b { color: var(--ink); }
 #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 13px; padding: 8px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .12s; z-index: 9; }
 
+.big { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+.big div { border-left: 3px solid var(--core); padding: 4px 0 4px 12px; font-size: 14.5px; color: var(--ink-2); }
+.big b { display: block; color: var(--ink); font-size: 15px; }
 /* Cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 .card { border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 8px; align-content: start; }
@@ -98,16 +101,29 @@ svg { width: 100%; height: auto; display: block; font-family: var(--font-body); 
 <body>
 <main>
   <header>
-    <h1>Five physical AI startups, side by side</h1>
-    <p class="lede">All five help robots work in the real world, but each one works on a different part of the job. Below: which steps each company covers, where they sit on the map, and a plain-words summary of each.</p>
+    <h1>Five startups teaching robots to work, side by side</h1>
+    <p class="lede">"Physical AI" just means AI that controls things in the real world, like robot arms in a factory, instead of AI that only writes text or makes pictures. These five young companies all want to make robots more useful, but each one works on a different piece of the puzzle. This page shows who does what, in plain words.</p>
   </header>
 
+  <section aria-labelledby="h-big">
+    <h2 id="h-big">First, the big picture: how does a robot learn a job?</h2>
+    <p class="sub">Think of it like training a new employee. Each step below is a place where a company can help.</p>
+    <div class="big">
+      <div><b>1. Show examples</b>Collect videos or recordings of the job being done.</div>
+      <div><b>2. Practice in a video game</b>Let the robot try millions of times in a computer copy of the world, where mistakes cost nothing.</div>
+      <div><b>3. Teach the robot</b>Turn all that practice into the robot's "brain", the software that decides what it does.</div>
+      <div><b>4. Give it an exam</b>Check it actually works before trusting it with the real thing.</div>
+      <div><b>5. Put it to work</b>Install the robot in a real factory or warehouse.</div>
+      <div><b>6. Keep an eye on things</b>Watch the machines once they're running and catch problems early.</div>
+    </div>
+  </section>
+
   <section aria-labelledby="h-cov">
-    <h2 id="h-cov">Which steps of making a useful robot does each company work on?</h2>
-    <p class="sub">Read left to right as the life of a robot: gather examples, practise in a simulated world, learn, get tested, go to work, then keep running. Dark cells are the company's main business; light cells are things it touches on.</p>
+    <h2 id="h-cov">Which steps does each company help with?</h2>
+    <p class="sub">Dark blue is what the company mainly does. Light blue is something it helps with on the side. Grey means it isn't their focus.</p>
     <div class="legend" aria-hidden="true">
       <span><i style="background:var(--core)"></i>Main business</span>
-      <span><i style="background:var(--some)"></i>Touches on it</span>
+      <span><i style="background:var(--some)"></i>Helps on the side</span>
       <span><i style="background:var(--none);border:1px solid var(--line)"></i>Not their focus</span>
     </div>
     <div class="scroll">
@@ -115,59 +131,59 @@ svg { width: 100%; height: auto; display: block; font-family: var(--font-body); 
         <thead>
           <tr>
             <th></th>
-            <th class="step" scope="col"><span>1</span>Gather real-world examples</th>
-            <th class="step" scope="col"><span>2</span>Build a practice world (simulation)</th>
-            <th class="step" scope="col"><span>3</span>Teach the robot brain</th>
-            <th class="step" scope="col"><span>4</span>Test and grade it</th>
-            <th class="step" scope="col"><span>5</span>Put robots to work</th>
-            <th class="step" scope="col"><span>6</span>Watch machines on site</th>
+            <th class="step" scope="col"><span>1</span>Show examples</th>
+            <th class="step" scope="col"><span>2</span>Practice in a video game</th>
+            <th class="step" scope="col"><span>3</span>Teach the robot</th>
+            <th class="step" scope="col"><span>4</span>Give it an exam</th>
+            <th class="step" scope="col"><span>5</span>Put it to work</th>
+            <th class="step" scope="col"><span>6</span>Keep an eye on things</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">Veeda AI<small>Toronto</small></th>
             <td class="none"></td>
-            <td class="core">AI that generates realistic simulated worlds ("world models")</td>
+            <td class="core">Uses AI to create realistic practice worlds for robots</td>
             <td class="some">Robots learn inside those worlds</td>
-            <td class="some">Safe virtual testing</td>
+            <td class="some">Safe tests in the practice world</td>
             <td class="none"></td>
             <td class="none"></td>
           </tr>
           <tr>
             <th scope="row">Kite ML<small>San Francisco</small></th>
-            <td class="some">Repaints existing recordings into many variations</td>
-            <td class="some">Turns one recording into a 3D sim room (beta)</td>
-            <td class="core">Trains robot brains on its cloud GPUs from a plain-English goal</td>
-            <td class="core">Automatic pass / fail grade and report cards</td>
+            <td class="some">Turns one video into many (new lighting, new table)</td>
+            <td class="some">Turns a real video into a practice room (early version)</td>
+            <td class="core">You type the skill you want; it trains the robot for you</td>
+            <td class="core">Automatically grades the robot: pass or fail</td>
             <td class="none"></td>
             <td class="none"></td>
           </tr>
           <tr>
             <th scope="row">WorldEngine<small>Santa Clara</small></th>
-            <td class="core">Captures and organizes huge amounts of real-world robot experience</td>
+            <td class="core">Collects huge amounts of real-life robot experience</td>
             <td class="none"></td>
-            <td class="core">Uses that data to further train robot models</td>
-            <td class="some">Evaluates the models</td>
-            <td class="some">Real-world failures feed the next round</td>
+            <td class="core">Uses it to make robot brains smarter</td>
+            <td class="some">Checks how well they do</td>
+            <td class="some">Robots' real mistakes become new lessons</td>
             <td class="none"></td>
           </tr>
           <tr>
             <th scope="row">Shiraz AI<small>San Francisco</small></th>
-            <td class="some">One human shows the task once</td>
+            <td class="some">A worker films the job once on a phone</td>
             <td class="none"></td>
-            <td class="core">Robot brain learns the new task from that single demo</td>
+            <td class="core">The robot learns the job from that one video</td>
             <td class="none"></td>
-            <td class="core">Ships the robot and sets it up on the factory line</td>
+            <td class="core">Brings the robot and sets it up in the factory</td>
             <td class="none"></td>
           </tr>
           <tr>
             <th scope="row">KavAI<small>California</small></th>
-            <td class="some">Reads sensor data from industrial equipment</td>
+            <td class="some">Reads signals from factory machines</td>
             <td class="none"></td>
             <td class="none"></td>
             <td class="none"></td>
             <td class="none"></td>
-            <td class="core">AI model that monitors machines and predicts problems</td>
+            <td class="core">Watches machines and warns before something breaks</td>
           </tr>
         </tbody>
       </table>
@@ -175,87 +191,85 @@ svg { width: 100%; height: auto; display: block; font-family: var(--font-body); 
   </section>
 
   <section aria-labelledby="h-map">
-    <h2 id="h-map">Who do they sell to, and do they work in simulation or in the real world?</h2>
-    <p class="sub">Positions are my judgment from public info, not measurements. Hover or tab to a dot for a one-line summary.</p>
+    <h2 id="h-map">Who are their customers, and where does the robot learn?</h2>
+    <p class="sub">This is my rough judgment from public info, not exact data. Hover over or tap a dot to see a one-line summary.</p>
     <div class="map-wrap">
       <svg viewBox="0 0 560 420" role="img" aria-labelledby="map-t map-d">
-        <title id="map-t">Positioning map of five physical AI startups</title>
-        <desc id="map-d">Horizontal axis runs from selling to robot builders on the left to selling to factories on the right. Vertical axis runs from real world at the bottom to simulation at the top. Veeda is top left, Kite upper left, WorldEngine lower left, KavAI lower right, Shiraz bottom right.</desc>
-        <!-- plot area x 40..540, y 20..370 -->
+        <title id="map-t">Map of five robot AI startups</title>
+        <desc id="map-d">Left to right goes from selling to robot makers to selling to factories. Bottom to top goes from learning from real life to practicing in a video game. Veeda is top left, Kite upper left, WorldEngine lower left, KavAI lower right, Shiraz bottom right.</desc>
         <rect x="40" y="20" width="500" height="350" fill="none" class="axis"/>
         <line x1="290" y1="20" x2="290" y2="370" class="mid"/>
         <line x1="40" y1="195" x2="540" y2="195" class="mid"/>
-        <text class="qd" x="50" y="40">Tools &amp; worlds for robot makers</text>
-        <text class="qd" x="50" y="360">Data for robot makers</text>
+        <text class="qd" x="50" y="40">Practice tools for robot makers</text>
+        <text class="qd" x="50" y="360">Real-life data for robot makers</text>
         <text class="qd" x="530" y="360" text-anchor="end">Robots &amp; AI for factories</text>
-        <text class="qd" x="530" y="40" text-anchor="end">(empty)</text>
-        <text class="axl" x="40" y="392">← Sells to robot builders</text>
-        <text class="axl" x="540" y="392" text-anchor="end">Sells to factories →</text>
-        <text class="axl" x="0" y="0" transform="translate(26 370) rotate(-90)">Real world</text>
-        <text class="axl" x="0" y="0" transform="translate(26 20) rotate(-90)" text-anchor="end">Simulation</text>
+        <text class="qd" x="530" y="40" text-anchor="end">(nobody here)</text>
+        <text class="axl" x="40" y="392">← Customers: companies that build robots</text>
+        <text class="axl" x="540" y="392" text-anchor="end">Customers: factories →</text>
+        <text class="axl" x="0" y="0" transform="translate(26 370) rotate(-90)">Learns from real life</text>
+        <text class="axl" x="0" y="0" transform="translate(26 20) rotate(-90)" text-anchor="end">Practices in a video game</text>
 
-        <g class="pt" tabindex="0" data-tip="Veeda AI: builds AI that simulates the physical world so robots can practise in it. $90M+ seed." transform="translate(110 70)">
+        <g class="pt" tabindex="0" data-tip="Veeda AI: builds AI-made practice worlds where robots can learn safely. Raised over $90 million." transform="translate(110 70)">
           <circle r="8"/><text x="14" y="5">Veeda AI</text>
         </g>
-        <g class="pt" tabindex="0" data-tip="Kite ML: cloud 'robot school'. Describe a skill, it trains and grades the robot brain in simulation. No disclosed funding." transform="translate(150 140)">
+        <g class="pt" tabindex="0" data-tip="Kite ML: a 'robot school' online. Type the skill you want and it trains and grades the robot. Two founders, no announced investment yet." transform="translate(150 140)">
           <circle r="8"/><text x="14" y="5">Kite ML</text>
         </g>
-        <g class="pt" tabindex="0" data-tip="WorldEngine: collects real-world robot experience at scale and uses it to keep improving robot models. Seed stage." transform="translate(170 290)">
+        <g class="pt" tabindex="0" data-tip="WorldEngine: gathers lots of real-life robot experience and uses it to keep improving robot brains." transform="translate(170 290)">
           <circle r="8"/><text x="14" y="5">WorldEngine</text>
         </g>
-        <g class="pt" tabindex="0" data-tip="KavAI: AI that watches industrial machines and predicts problems. ~$7.2M reported (sources conflict)." transform="translate(430 260)">
+        <g class="pt" tabindex="0" data-tip="KavAI: AI that watches factory machines and warns before they break. Reported to have raised about $7 million." transform="translate(430 260)">
           <circle r="8"/><text x="-14" y="5" text-anchor="end">KavAI</text>
         </g>
-        <g class="pt" tabindex="0" data-tip="Shiraz AI: delivers factory robots that learn a new task from one human demo. YC S26." transform="translate(470 330)">
+        <g class="pt" tabindex="0" data-tip="Shiraz AI: factory robots that learn a new job from one phone video of a worker doing it." transform="translate(470 330)">
           <circle r="8"/><text x="-14" y="5" text-anchor="end">Shiraz AI</text>
         </g>
       </svg>
       <div class="read">
-        <p><b>Left side, robot builders.</b> Veeda, Kite and WorldEngine sell to companies that make robots. They supply the practice worlds, the training tools or the data.</p>
-        <p><b>Top versus bottom.</b> Veeda and Kite bet on simulation (practise in a virtual world). WorldEngine bets on real-world data being what's missing.</p>
-        <p><b>Right side, factories.</b> Shiraz and KavAI sell straight to industry. Shiraz brings the working robot itself; KavAI brings AI that watches existing machines.</p>
-        <p><b>Empty corner.</b> Nobody here sells simulation tools straight to factories.</p>
+        <p><b>Left side: they sell to robot makers.</b> Veeda, Kite and WorldEngine don't build robots. They sell the "school supplies" that robot companies use to train their robots.</p>
+        <p><b>Top vs. bottom.</b> Veeda and Kite think robots should mostly practice in a computer copy of the world (cheap and safe). WorldEngine thinks real-life experience is what robots are missing.</p>
+        <p><b>Right side: they sell to factories.</b> Shiraz brings the robot itself. KavAI brings software that watches a factory's existing machines.</p>
       </div>
     </div>
   </section>
 
   <section aria-labelledby="h-cards">
-    <h2 id="h-cards">Each company in plain words</h2>
+    <h2 id="h-cards">Each company in one minute</h2>
     <div class="cards">
       <article class="card">
         <h3>Veeda AI</h3>
-        <span class="tag">World models</span>
-        <p class="like">A flight simulator for robots, made by AI.</p>
-        <dl><dt>Sells</dt><dd>Simulated worlds and models</dd><dt>To</dt><dd>Robot makers and AI labs</dd><dt>Stage</dt><dd>$90M+ seed, Aug 2026 (Radical, Khosla)</dd><dt>Team</dt><dd>Ex-NVIDIA Toronto AI lab</dd></dl>
+        <span class="tag">Practice worlds for robots</span>
+        <p class="like">Like a flight simulator for pilots, but for robots, and made by AI.</p>
+        <dl><dt>Sells</dt><dd>Software that creates practice worlds</dd><dt>To</dt><dd>Robot companies and AI labs</dd><dt>Money</dt><dd>Raised over $90 million from investors (Aug 2026)</dd><dt>Team</dt><dd>Former researchers from NVIDIA, the AI chip giant</dd></dl>
       </article>
       <article class="card">
         <h3>Kite ML</h3>
-        <span class="tag">Robot training platform</span>
-        <p class="like">A robot school in the cloud: describe the skill, get back a trained, graded brain.</p>
-        <dl><dt>Sells</dt><dd>Software / cloud service</dd><dt>To</dt><dd>Robotics teams and labs</dd><dt>Stage</dt><dd>2 founders, no disclosed round</dd><dt>Twist</dt><dd>An AI assistant can run it end to end</dd></dl>
+        <span class="tag">Online robot school</span>
+        <p class="like">Describe a skill in plain English, like "walk forward," and get back a trained robot brain with a report card.</p>
+        <dl><dt>Sells</dt><dd>An online service</dd><dt>To</dt><dd>Small robot teams and labs</dd><dt>Money</dt><dd>Two founders, no announced investment yet</dd><dt>Cool part</dt><dd>An AI assistant can run the whole thing for you</dd></dl>
       </article>
       <article class="card">
         <h3>WorldEngine</h3>
-        <span class="tag">Real-world data engine</span>
-        <p class="like">Collects robots' real-life experience and turns their mistakes into lessons.</p>
-        <dl><dt>Sells</dt><dd>Data and post-training</dd><dt>To</dt><dd>Robot model builders</dd><dt>Stage</dt><dd>Seed (ZWC, UpScaleX), founded 2025</dd><dt>Claim</dt><dd>"Scale physical experience 10,000×"</dd></dl>
+        <span class="tag">Real-life experience for robots</span>
+        <p class="like">Collects what robots go through in real life and turns their mistakes into lessons.</p>
+        <dl><dt>Sells</dt><dd>Data and training help</dd><dt>To</dt><dd>Companies building robot brains</dd><dt>Money</dt><dd>Early investment; started in 2025</dd><dt>Goal</dt><dd>Give robots 10,000× more real-world experience</dd></dl>
       </article>
       <article class="card">
         <h3>Shiraz AI</h3>
-        <span class="tag">Full-stack factory robots</span>
-        <p class="like">Show it a factory job once and it does the job; new product next week, show it again.</p>
-        <dl><dt>Sells</dt><dd>Robot + AI + setup</dd><dt>To</dt><dd>Contract manufacturers</dd><dt>Stage</dt><dd>YC S26, 2 founders</dd><dt>Team</dt><dd>Ex-Boston Dynamics (Spot), Amazon Robotics</dd></dl>
+        <span class="tag">Factory robots that learn by watching</span>
+        <p class="like">A worker films a job once on their phone, and the robot learns to do it. New product next week? Film it again.</p>
+        <dl><dt>Sells</dt><dd>The robot, its brain, and setup</dd><dt>To</dt><dd>Factories that make products for other brands and switch jobs often</dd><dt>Money</dt><dd>Backed by Y Combinator, a famous startup program</dd><dt>Team</dt><dd>Built robots at Boston Dynamics and Amazon</dd></dl>
       </article>
       <article class="card">
         <h3>KavAI</h3>
-        <span class="tag">Industrial monitoring AI</span>
-        <p class="like">A doctor for factory machines: watches the signals and warns before something breaks.</p>
-        <dl><dt>Sells</dt><dd>AI model / software</dd><dt>To</dt><dd>Manufacturing, energy, robotics operators</dd><dt>Stage</dt><dd>~$7.2M reported, sources conflict</dd><dt>Note</dt><dd>Formerly SoterAI</dd></dl>
+        <span class="tag">A watchful eye on machines</span>
+        <p class="like">Like a doctor for factory machines: it reads their signals and warns before something breaks.</p>
+        <dl><dt>Sells</dt><dd>Monitoring software</dd><dt>To</dt><dd>Factories, energy companies</dd><dt>Money</dt><dd>About $7 million reported (reports disagree)</dd><dt>Note</dt><dd>Used to be called SoterAI</dd></dl>
       </article>
     </div>
   </section>
 
-  <p class="foot">Researched 6 Nov 2026 from web search results, company docs and press. The companies' own websites could not be opened directly, and most claims are self-reported. Coverage cells and map positions are interpretive. Details and sources are in the companies/ folder of the physical-ai repo.</p>
+  <p class="foot">Put together in November 2026 from public news, company pages and startup databases. Most details come from the companies themselves and haven't been independently checked. Where each company sits on the chart and map is a rough judgment, not a measurement.</p>
 </main>
 <div id="tip" role="status" aria-live="polite"></div>
 <script>
@@ -266,6 +280,7 @@ svg { width: 100%; height: auto; display: block; font-family: var(--font-body); 
   document.querySelectorAll('.pt').forEach(function (el) {
     el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
     el.addEventListener('mouseleave', hide);
+    el.addEventListener('click', function (e) { show(el, e.clientX, e.clientY); });
     el.addEventListener('focus', function () { var r = el.getBoundingClientRect(); show(el, r.right, r.top); });
     el.addEventListener('blur', hide);
   });
