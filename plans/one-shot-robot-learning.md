@@ -95,6 +95,9 @@ Sim demos are usually robot demos, so build the test in three levels:
 - **Cameras:** 1–2 RealSense D405/D435 or ZED on the robot; an **iPhone Pro with LiDAR** (Record3D app) for recording demos as RGB-D.
 - **Compute:** one RTX 4090/5090 workstation, plus cloud GPUs for training.
 
+### Do you need a powerful laptop? (Q&A 2026-11-08)
+No. An **M1 MacBook is fine as the "driver's seat"**: coding, small MuJoCo sims, LeRobot + SO-101 arm control, recording demos, small policies (ACT) on Apple's GPU (MPS). The heavy parts need an **NVIDIA GPU**, which a Mac can't provide: Isaac Lab, GPU-parallel ManiSkill3, RLBench (Linux), FoundationPose, and π0/OpenVLA training. **Rent cloud GPUs** for those (Colab, RunPod, Lambda, Vast.ai, Modal). Buy a 4090/5090 desktop only once cloud bills are steadily above ~$300–500/month.
+
 ## 5. Phased plan
 
 ### Phase 0 (weeks 0–2): Pick the wedge
