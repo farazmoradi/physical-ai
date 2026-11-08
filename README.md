@@ -1,7 +1,7 @@
 # Physical AI company tracker
 
 Notes on companies working in physical AI (robotics, world models, embodied AI).
-One file per company in [`companies/`](companies/). Visual side-by-side comparison: [`comparison.html`](comparison.html).
+One file per company in [`companies/`](companies/). Visual side-by-side comparison: [`comparison.html`](comparison.html). Build plan for a Shiraz-style system: [`plans/one-shot-robot-learning.md`](plans/one-shot-robot-learning.md).
 
 | Company | Site | Category | One-liner | Stage / funding |
 |---|---|---|---|---|
