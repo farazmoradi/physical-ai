@@ -1,7 +1,7 @@
 # Physical AI company tracker
 
 Notes on companies working in physical AI (robotics, world models, embodied AI).
-One file per company in [`companies/`](companies/). Visual side-by-side comparison: [`comparison.html`](comparison.html). Build plan for a Shiraz-style system: [`plans/one-shot-robot-learning.md`](plans/one-shot-robot-learning.md). Robot harness landscape: [`plans/robot-harness-landscape.md`](plans/robot-harness-landscape.md).
+One file per company in [`companies/`](companies/). Visual side-by-side comparison: [`comparison.html`](comparison.html). Build plan for a Shiraz-style system: [`plans/one-shot-robot-learning.md`](plans/one-shot-robot-learning.md). Robot harness landscape: [`plans/robot-harness-landscape.md`](plans/robot-harness-landscape.md). One-shot benchmark v0: [`plans/one-shot-benchmark.md`](plans/one-shot-benchmark.md).
 
 | Company | Site | Category | One-liner | Stage / funding |
 |---|---|---|---|---|
