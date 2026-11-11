@@ -70,3 +70,10 @@ M1 for code and analysis; rent a Linux GPU (RTX 4090 / A100) for sims and models
 ## Open items to verify
 - Instant Policy checkpoint and code availability (project page: robot-learning.uk/instant-policy).
 - Which VLAs accept RLBench's camera views and action space without fine-tuning (likely none perform well zero-shot; that's itself a finding).
+
+## Compute without renting GPUs (researched 2026-11-11; verify terms on official pages)
+- **On the M1:** MuJoCo-based sims (robosuite, LeRobot gym envs such as PushT/ALOHA/xArm, MuJoCo Menagerie), small policies on MPS, scripted/LLM-agent baselines via API. RLBench, Isaac Lab and most VLA serving need Linux + NVIDIA.
+- **Free notebooks:** Kaggle (~30 GPU h/week, T4/P100, 12 h sessions; the most predictable). Colab free (T4 when available, no guaranteed quota). Lightning AI (free credits; terms reportedly changed to a one-time grant in Sep 2026). Notebooks suit MuJoCo/ManiSkill better than RLBench/CoppeliaSim or Docker.
+- **Credit programs:** Modal startup credits (reported ≥$500, simple form) · RunPod startup ($1k reported) · Lambda Research Grant (up to $5k reported, researchers) · NVIDIA Inception (free membership, partner credits) · Google for Startups Cloud / AWS Activate / Microsoft for Startups (big, but usually need a company, accelerator or VC; GPU use sometimes excluded) · Google TPU Research Cloud (open research; TPUs suit JAX/MJX) · Hugging Face community GPU grants (public Spaces).
+- **Academic route (Canada):** Digital Research Alliance of Canada clusters need a faculty sponsor. Collaborating with a former uOttawa lab could open that.
+- **Own hardware:** a used RTX 3090 (24 GB) desktop is the cheapest serious local option.
